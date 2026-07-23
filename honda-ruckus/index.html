@@ -80,6 +80,26 @@
   .spec .s{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;text-align:center}
   .spec .s .n{font-family:"Sora",sans-serif;font-size:1.5rem;font-weight:800;color:var(--sun-2)}
   .spec .s .l{color:var(--muted);font-size:.82rem;margin-top:.2rem}
+
+  /* Real-rides slideshow */
+  .showcase{padding-top:clamp(1.4rem,4vw,2rem);border-top:none}
+  .slides{position:relative;max-width:780px;margin:0 auto;border-radius:20px;overflow:hidden;
+    border:1px solid var(--line);background:#04202f;box-shadow:0 22px 55px rgba(0,0,0,.4);
+    height:clamp(330px,60vh,540px)}
+  .slides figure{position:absolute;inset:0;margin:0;opacity:0;transition:opacity .8s ease;pointer-events:none}
+  .slides figure.on{opacity:1;pointer-events:auto}
+  .slides img{width:100%;height:100%;object-fit:contain;background:#04202f;display:block}
+  .slides figcaption{position:absolute;left:0;right:0;bottom:0;padding:2.2rem 1.2rem .95rem;
+    background:linear-gradient(180deg,transparent,rgba(2,18,28,.9));font-weight:600;font-size:1rem;text-align:center}
+  .slides figcaption b{color:var(--sun-2)}
+  .nav{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;
+    background:rgba(6,38,58,.72);border:1px solid var(--line);color:#fff;font-size:1.4rem;line-height:1;
+    display:grid;place-items:center;cursor:pointer;user-select:none;transition:background .15s,color .15s;z-index:2}
+  .nav:hover{background:var(--sun);color:#2a1c00}
+  .nav.prev{left:12px}.nav.next{right:12px}
+  .dots{display:flex;gap:9px;justify-content:center;margin:1.1rem 0 0}
+  .dots button{width:11px;height:11px;border-radius:50%;border:none;background:var(--line);cursor:pointer;padding:0;transition:background .15s,transform .15s}
+  .dots button.on{background:var(--sun);transform:scale(1.25)}
 </style>
 </head>
 <body>
@@ -96,6 +116,32 @@
       <div class="trust"><span>⛽ <b>114 MPG</b></span><span>🏁 <b>~45 mph</b></span><span>🛡️ <b>Honda-reliable</b></span><span>😎 <b>Cult classic</b></span></div>
     </div>
   </header>
+
+  <section class="showcase" style="border-top:none;padding-top:0">
+    <div class="wrap">
+      <div class="head" style="margin-bottom:1.4rem">
+        <span class="eyebrow">Real Rides · Not Stock Photos</span>
+        <h2>Meet the actual fleet 🛵</h2>
+        <p>These are our real Honda Ruckus scooters, ready to ride in New Bern &amp; Delray Beach. Pick your look — every one is <b style="color:var(--sun-2)">$80/week, tags &amp; insurance included</b>.</p>
+      </div>
+
+      <div class="slides" id="slides" aria-label="Photos of our Honda Ruckus scooters">
+        <figure class="on"><img src="../img/ruckus/ruckus-green-1.jpg" alt="Olive-green Honda Ruckus with brown Honda saddle" loading="lazy" width="1200" height="1600" />
+          <figcaption>Our custom <b>olive-green</b> Ruckus — genuine Honda saddle, ready to roll.</figcaption></figure>
+        <figure><img src="../img/ruckus/ruckus-green-2.jpg" alt="Honda Ruckus front rack and twin headlights" loading="lazy" />
+          <figcaption>Twin headlights and a Honda cargo rack — <b>built for the coast</b>.</figcaption></figure>
+        <figure><img src="../img/ruckus/ruckus-black.jpg" alt="Black Honda Ruckus in the sun" loading="lazy" />
+          <figcaption>Blacked-out and sunny — <b>pick your color, grab the key</b>.</figcaption></figure>
+        <figure><img src="../img/ruckus/ruckus-green-3.jpg" alt="Honda Ruckus RUCKUS badge close-up" loading="lazy" />
+          <figcaption>The real deal — a <b>genuine Honda Ruckus</b>, not a knockoff.</figcaption></figure>
+        <figure><img src="../img/ruckus/ruckus-green-4.jpg" alt="Honda Ruckus headlights and front rack detail" loading="lazy" />
+          <figcaption>Details that <b>turn heads</b> everywhere you park it.</figcaption></figure>
+        <button class="nav prev" id="prev" aria-label="Previous photo">‹</button>
+        <button class="nav next" id="next" aria-label="Next photo">›</button>
+      </div>
+      <div class="dots" id="dots" role="tablist" aria-label="Choose a photo"></div>
+    </div>
+  </section>
 
   <section id="rent">
     <div class="wrap">
@@ -187,5 +233,36 @@
       <div class="sdg">Soli Deo Gloria ✝️</div>
     </div>
   </footer>
+<script>
+(function(){
+  var box=document.getElementById('slides');
+  if(!box) return;
+  var figs=box.querySelectorAll('figure');
+  var dotsWrap=document.getElementById('dots');
+  var i=0, timer=null, DELAY=4200;
+  figs.forEach(function(_,n){
+    var b=document.createElement('button');
+    b.setAttribute('role','tab');
+    b.setAttribute('aria-label','Photo '+(n+1));
+    if(n===0) b.className='on';
+    b.addEventListener('click',function(){go(n);reset();});
+    dotsWrap.appendChild(b);
+  });
+  var dots=dotsWrap.querySelectorAll('button');
+  function go(n){
+    figs[i].classList.remove('on'); dots[i].classList.remove('on');
+    i=(n+figs.length)%figs.length;
+    figs[i].classList.add('on'); dots[i].classList.add('on');
+  }
+  function next(){go(i+1);} function prev(){go(i-1);}
+  function start(){timer=setInterval(next,DELAY);}
+  function reset(){clearInterval(timer);start();}
+  document.getElementById('next').addEventListener('click',function(){next();reset();});
+  document.getElementById('prev').addEventListener('click',function(){prev();reset();});
+  box.addEventListener('mouseenter',function(){clearInterval(timer);});
+  box.addEventListener('mouseleave',start);
+  start();
+})();
+</script>
 </body>
 </html>
