@@ -55,6 +55,9 @@
   .ride h3{font-size:1.2rem;margin:.5rem 0 .3rem}
   .ride p{color:var(--muted);font-size:.94rem}
   .ride .rate{color:var(--sun-2);font-weight:700;margin-top:.6rem;font-size:.92rem}
+  .ride .photo{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px;margin-bottom:.7rem;display:block}
+  .ruckus-hero{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:1.4rem auto .2rem;max-width:560px}
+  .ruckus-hero img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px;display:block}
 
   .steps{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));counter-reset:s}
   .step{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px}
@@ -133,10 +136,10 @@
       <div class="head"><span class="eyebrow">The Fleet</span><h2>Pick your ride</h2>
         <p>Growing all the time — text us for what's available and today's rates. Clean, dialed-in rides — <b>we spare no expense</b> keeping them right.</p></div>
       <div class="fleet">
-        <div class="ride"><div class="ic">🛵</div><h3>Honda Scooters</h3><p>Honda Ruckus fun — easy, zippy, perfect for cruising the coast.</p><div class="rate">$80 / week — all included</div></div>
+        <div class="ride"><img class="photo" src="img/ruckus/ruckus-green-1.jpg" alt="Honda Ruckus scooter for rent — Red Sea Rentals New Bern NC"><h3>Honda Scooters</h3><p>Honda Ruckus fun — easy, zippy, perfect for cruising the coast.</p><div class="rate">$80 / week — all included</div></div>
         <div class="ride"><div class="ic">🚙</div><h3>4-Seat Golf Cart</h3><p>Street-legal electric cart — grab the family or the crew and go.</p><div class="rate">$18/hr · $45 half-day · $70 all day</div></div>
         <div class="ride"><div class="ic">🚐</div><h3>6-Seat Golf Cart</h3><p>Room for the whole squad — the big electric ride (Delray Beach, FL).</p><div class="rate">$20/hr · $50 half-day · $80 all day</div></div>
-        <div class="ride"><div class="ic">🏖️</div><h3>Beach Cruiser <span style="font-size:.7rem;color:var(--sun)">SOON</span></h3><p>An open-air electric beach car (Moke-style) — the coolest way to roll up.</p><div class="rate">Coming to the fleet</div></div>
+        <div class="ride"><img class="photo" src="img/pink-moke.jpg" alt="The Pink Panther electric pink Moke for rent — Delray Beach FL"><h3>The Pink Panther 💗</h3><p>1,000 Lamborghinis in Delray — and exactly <b>one</b> Pink Mote. Lambos turn heads; the Pink Mote turns the whole street. Our one-of-a-kind open-air electric Moke.</p><div class="rate"><a href="/delray/">Meet the Pink Panther →</a></div><button type="button" onclick="ppVibe(this)" style="margin-top:.8rem;background:transparent;border:1px solid var(--line);color:var(--sun-2);border-radius:999px;padding:.5rem 1rem;font-weight:700;cursor:pointer;font-size:.86rem">🎷 Play the vibe</button><audio id="ppAudio" loop preload="none" src="audio/pink-panther-vibe.mp3"></audio></div>
       </div>
     </div>
   </section>
@@ -147,6 +150,11 @@
         <span class="eyebrow" style="color:var(--sun)">Our Signature Ride</span>
         <h2 style="color:#fff">The Honda Ruckus 🛵</h2>
         <p style="color:var(--muted)">Tough, simple, and endlessly fun — the Ruckus is what put us on the map in New Bern. Sips gas, easy to ride, and a blast up and down the coast. Just <b style="color:var(--sun-2)">$80 a week, all included</b> — try finding that anywhere else.</p>
+        <div class="ruckus-hero">
+          <img src="img/ruckus/ruckus-green-2.jpg" alt="Honda Ruckus — Red Sea Rentals">
+          <img src="img/ruckus/ruckus-black.jpg" alt="Honda Ruckus black — Red Sea Rentals">
+          <img src="img/ruckus/ruckus-white.jpg" alt="Honda Ruckus white — Red Sea Rentals">
+        </div>
         <div class="cta-row" style="justify-content:center">
           <a class="btn btn-sun" href="sms:2526266236">💬 Reserve a Ruckus →</a>
           <a class="btn btn-ghost" href="/honda-ruckus/">🛵 Everything about the Ruckus →</a>
@@ -189,7 +197,7 @@
         <p>Born on North Carolina's Crystal Coast — and opening a new branch in Delray Beach, Florida. Same honest prices, same easy text-to-ride, two beautiful coasts.</p></div>
       <div class="fleet" style="grid-template-columns:1fr 1fr;max-width:720px;margin:0 auto">
         <div class="ride"><div class="ic">⚓</div><h3>New Bern &amp; the Crystal Coast, NC</h3><p>Where it started — Honda Ruckus scooters, carts, and cruisers for the Carolina coast.</p></div>
-        <div class="ride"><div class="ic">🌴</div><h3>Delray Beach, FL <span style="font-size:.7rem;color:var(--sun)">NEW BRANCH</span></h3><p>Home of <b>the Pink Panther</b> 💗 — Delray's one-of-a-kind pink Moke. Golf carts, Mokes &amp; scooters in the South Florida sun.</p><div class="rate"><a href="/delray/">Meet the Pink Panther →</a></div></div>
+        <div class="ride"><img class="photo" src="img/pink-moke-vibe.jpg" alt="Pink Panther Moke cruising Delray Beach FL"><h3>Delray Beach, FL <span style="font-size:.7rem;color:var(--sun)">NEW BRANCH</span></h3><p>Home of <b>the Pink Panther</b> 💗 — Delray's one-of-a-kind pink Moke. Golf carts, Mokes &amp; scooters under the palms. <em>La vida</em> — come cruise the South Florida sun. 🌴</p><div class="rate"><a href="/delray/">Meet the Pink Panther →</a></div></div>
       </div>
     </div>
   </section>
@@ -243,5 +251,10 @@
       <a href="https://hahntechcorp.com" style="color:inherit;text-decoration:underline">Hahn Tech Corp</a> · <a href="https://koalateakratom.com" style="color:inherit;text-decoration:underline">Koala Tea Kratom</a> · <a href="https://red-sea-rentals.com" style="color:inherit;text-decoration:underline">Red Sea Rentals</a> · <a href="https://readytechrepairs.com" style="color:inherit;text-decoration:underline">Ready Tech Repairs</a> · <a href="https://ubuntumylife.com" style="color:inherit;text-decoration:underline">Ubuntu My Life</a> · <a href="https://flipthecupfinancials.com" style="color:inherit;text-decoration:underline">Flip the Cup</a> · <a href="https://everandamen.org" style="color:inherit;text-decoration:underline">Ever & Amen</a> · <a href="https://donutsphobagels.com" style="color:inherit;text-decoration:underline">Donuts Pho Bagels</a> · <a href="https://hahnsparkling.com" style="color:inherit;text-decoration:underline">Hahn Sparkling</a> · <a href="https://livingwaterdelivered.com" style="color:inherit;text-decoration:underline">Living Water</a> · <a href="https://fishingpierhopper.com" style="color:inherit;text-decoration:underline">Pier Hopper</a> · <a href="https://tortugueroturtles.com" style="color:inherit;text-decoration:underline">Track the Turtles</a> · <a href="https://wishafter.com" style="color:inherit;text-decoration:underline">Wish Ever After</a> · <a href="https://methuselahmoney.com" style="color:inherit;text-decoration:underline">Methuselah</a> · <a href="https://aihealthnwellness.com" style="color:inherit;text-decoration:underline">AI Health & Wellness</a> · <a href="https://davidworthingtonhahn.com" style="color:inherit;text-decoration:underline">David Hahn</a>
     </div>
   </footer>
+  <script>
+  function ppVibe(b){var a=document.getElementById('ppAudio');if(!a)return;
+    if(a.paused){a.play().then(function(){b.textContent='⏸ Pause the vibe';}).catch(function(){b.textContent='🎷 (add a track — see audio/)';});}
+    else{a.pause();b.textContent='🎷 Play the vibe';}}
+  </script>
 </body>
 </html>
