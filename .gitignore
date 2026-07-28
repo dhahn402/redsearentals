@@ -1,0 +1,38 @@
+# --- Hahn standard .gitignore ---
+# Keeps stray sensitive files from ever being published by an accidental `git add .`
+
+# Cloudflare / tooling caches (contain account IDs)
+.wrangler/
+.vercel/
+.claude/settings.local.json
+
+# Secrets — never commit
+.env
+.env.*
+*.pem
+*.key
+*.p12
+credentials*.json
+*secret*
+*backup_codes*
+
+# Data files that may hold customer or personal info
+*.csv
+*.xlsx
+*.xls
+*.numbers
+*.db
+*.sqlite
+
+# Documents that may hold private info (allow-list any you WANT published)
+*.pdf
+*.docx
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.idea/
+.vscode/
+node_modules/
