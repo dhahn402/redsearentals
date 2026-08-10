@@ -58,6 +58,14 @@
   .ride p{color:var(--muted);font-size:.94rem}
   .ride .rate{color:var(--sun-2);font-weight:700;margin-top:.6rem;font-size:.92rem}
   .ride .photo{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px;margin-bottom:.7rem;display:block}
+  /* 2026-08-10: the 4-seat cart has no photo yet. Without this it rendered as a
+     bare emoji, so that card was shorter than the others and the fleet row
+     looked broken. Same 4:3 footprint = the grid lines up and it reads as a
+     design choice until a real photo arrives. */
+  .ride .ic{width:100%;aspect-ratio:4/3;border-radius:12px;margin-bottom:.7rem;display:grid;
+    place-items:center;font-size:3.2rem;line-height:1;
+    background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.02));
+    border:1px solid var(--line)}
   .ruckus-hero{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:1.4rem auto .2rem;max-width:560px}
   .ruckus-hero img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px;display:block}
 
@@ -158,7 +166,7 @@
       <div class="head"><span class="eyebrow">The Fleet</span><h2>Pick your ride</h2>
         <p>Growing all the time — text us for what's available and today's rates. Clean, dialed-in rides — <b>we spare no expense</b> keeping them right.</p></div>
       <div class="fleet">
-        <div class="ride"><img class="photo" src="img/ruckus/ruckus-cookies.jpg" alt="Charles's red-and-white Honda Ruckus — Red Sea Rentals, running now in New Bern NC"><h3>Honda Scooters</h3><p>Honda Ruckus fun — easy, zippy, perfect for cruising the coast. <b>Running now in New Bern</b> 🟢 · Delray Beach coming soon.</p><div class="rate">$80 / week — all included</div><p style="margin-top:.75rem;font-size:.82rem;color:var(--muted);border-top:1px solid var(--line);padding-top:.6rem;text-align:left">🎉 <strong style="color:var(--sun-2)">Shout-out to our friend Charles</strong> — new job in town and on the come-up. This red-and-white Ruckus is the one he loves. Proud of you, brother! 🙏</p></div>
+        <div class="ride"><div class="ic">🛵</div><h3>Honda Scooters</h3><p>Honda Ruckus fun — easy, zippy, perfect for cruising the coast. <b>Running now in New Bern</b> 🟢 · Delray Beach coming soon.</p><div class="rate">$80 / week — all included</div></div>
         <div class="ride"><div class="ic">🚙</div><h3>4-Seat Golf Cart</h3><p>Street-legal electric cart — grab the family or the crew and go.</p><div class="rate">$18/hr · $45 half-day · $70 all day</div></div>
         <div class="ride"><img class="photo" src="img/delray-6-seater-black.jpg" alt="6-seat electric golf cart for rent — Delray Beach FL"><h3>6-Seat Golf Cart</h3><p>Room for the whole squad — the big electric ride (Delray Beach, FL). Tuna tower, lights, lithium battery &amp; upgraded sound.</p><div class="rate">$20/hr · $50 half-day · $80 all day</div><button type="button" onclick="golfVibe(this)" style="margin-top:.8rem;background:transparent;border:1px solid var(--line);color:var(--sun-2);border-radius:999px;padding:.5rem 1rem;font-weight:700;cursor:pointer;font-size:.86rem">⛳ Play the cruise</button><audio id="golfAudio" loop preload="none" src="audio/golf-cart-vibe.mp3"></audio><div style="font-size:.6rem;color:var(--muted);margin-top:5px;opacity:.85">🎵 &ldquo;Carefree&rdquo; — Kevin MacLeod (incompetech.com) · CC BY</div></div>
         <div class="ride"><img class="photo" src="img/pink-moke.jpg" alt="The Pink Panther electric pink Moke for rent — Delray Beach FL"><h3>The Pink Panther 💗</h3><p>1,000 Lamborghinis in Delray — and exactly <b>one</b> Pink Mote. Lambos turn heads; the Pink Mote turns the whole street. Our one-of-a-kind open-air electric Moke.</p><div class="rate"><a href="/delray/">Meet the Pink Panther →</a></div><button type="button" onclick="ppVibe(this)" style="margin-top:.8rem;background:transparent;border:1px solid var(--line);color:var(--sun-2);border-radius:999px;padding:.5rem 1rem;font-weight:700;cursor:pointer;font-size:.86rem">🎷 Play the vibe</button><audio id="ppAudio" loop preload="none" src="audio/pink-panther-vibe.mp3"></audio><div style="font-size:.6rem;color:var(--muted);margin-top:5px;opacity:.85">🎵 &ldquo;Sneaky Snitch&rdquo; — Kevin MacLeod (incompetech.com) · CC BY</div></div>
