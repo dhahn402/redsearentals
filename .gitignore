@@ -36,3 +36,6 @@ Thumbs.db
 .idea/
 .vscode/
 node_modules/
+
+# local pre-edit backups — never commit these
+*.bak-*
